@@ -1,0 +1,24 @@
+h2 {margin: 0.5em 0em; font-weight: normal; font-size: 1em;}
+hr {clear: both;}
+.version {float: right;}
+.description {float: left;}
+form {padding: 0; margin: 0;}
+textarea {margin: 0;}
+#packer textarea {clear: both; width: 98%; margin-top: 4px; padding: 0 2px; font-family: monospace;}
+@media screen and (min-width: 0px) {#packer textarea{width: 100%;}}
+textarea.disabled, .disabled textarea {background-color: #EEEEEE; border: 2px solid #898E79;}
+*.disabled, .disabled * {color: #898E79 !important;}
+#input {background-color: #F0F0F0; border-color: #CCCCCC;}
+#controls {float: right; text-align: right;}
+#message {font-size: x-small; margin-top: 0.5em;}
+.error {color: #AA3333;}
+#packer #message {margin: 0 0 1em 0; float: right;}
+#packer p {margin: 0;}
+#packer p.form-buttons, #packer #controls {margin: 1em 0;}
+p.form-buttons button {margin-right: 0.2em;}
+#packer {margin-bottom: 1em; behavior: url(clipboard.htc);}
+#disabled {font-weight: bold; text-align: center; display: none; color: #000000 !important;}
+.disabled #disabled {display: block;}
+p.footnote {margin-bottom: 0; float: left;}
+p.not-firefox {display: none;}
+.disabled .not-firefox {display: block; text-align: center; color: darkred !important;}

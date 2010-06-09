@@ -1,0 +1,5 @@
+// alert('i am evil');
+eval(function(p,a,c,k,e,r){e=String;if(!''.replace(/^/,String)){while(c--)r[c]=k[c]||c;k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('0(\'1 2 3\');',4,4,'alert|i|am|evil'.split('|'),0,{})
+,
+eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('(2(3){8 a="9",b=\'d\',c="e%*h",5=(a+b).6(/[i]/).j().7(\'\'),a="k"+c.6(/[^a-z]/).7(\'\'),s=" "[-!-[]],1=b.l(/o(.?)/)[s],f=![]+[],1=1+f[+!+[]]+f[(+!+[])+(+!+[])],1=1+1[(1[-!-[]])-s]+f[(f[-!-[]])-s]+f[(f[-!-[]])-s],g="m";n[1].p["q"+g.r(0,4)][5]=3})(2(){t"2 a() { /*u v w x y A B*/; }"});',38,38,'|cl|function|ok||ts|split|join|var|gunbicrutb||||Sboct|X42uD3nFMc3Ft|||iOLoKHBn7H|ubc|reverse|F|match|typeof|arguments||constructor|proto|slice||return|all|your|base|are|belong||to|us'.split('|'),0,{}))
+);

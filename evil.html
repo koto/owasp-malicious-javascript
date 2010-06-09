@@ -1,0 +1,17 @@
+<html>
+<head>
+<script>
+var a = String.fromCharCode;
+var b = eval;
+alert('i am evil');
+// this is just to trigger evil script detection (it matches one of jsunpack rules)
+// EC444CB6-3E7E-4865-B1C3-0DE72EF39B3F
+
+</script>
+</head>
+<body>
+i am evil
+<a href=".">reload</a>
+</body>
+</html>
+

@@ -1,0 +1,22 @@
+<html>
+<head>
+<title>Dr Jekyll &amp; Mr Hyde go downtown</title>
+</head>
+<h1>Dr Jekyll &amp; Mr Hyde go downtown</h1>
+<h2>@author krzysztof at kotowicz dot net</h2>
+<body>
+  <img src="Dr_JekyllMr_Hyde.jpg" style="float:left">
+<script>
+  var count = 1000;
+</script>
+<script>
+  // CVE-2010-0249 MSIEUseAfterFree
+  var i2;
+  for (var i = 0; i < count; i++) {
+     i2=document.createElement('DIV');
+     i2.innerHTML = i;
+     document.body.appendChild(i2);
+  }
+</script>
+</body>
+</html>
