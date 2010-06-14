@@ -16,14 +16,14 @@ Sandbox detection
 - Modify js.js with your webserver path
 - add some sandbox detection tests (real_browser = ...) from the presentation to js.js
 - Use
-    jsunpack-n -a -u <URL for index.php>
+    jsunpack-n -a -u &lt;URL for index.php&gt;
   to trigger the attack and see that it avoids detection
 
 Dr Jekyll attack
 ---------------
 - check jekyll1.html and jekyll2.html files
   The trick here is that jsunpack executes all &lt;script&gt; tags instead of only JavaScript
-  and we can avoid detection by running ssome code only in jsunpack
+  and we can avoid detection by running some code only while in jsunpack sandbox.
 
 HTML hack
 --------
