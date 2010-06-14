@@ -2,11 +2,11 @@ Author: Krzysztof Kotowicz <kkotowicz at gmail dot com>
 License: MIT  
 
 In this repository there are various materials for OWASP presentation on malicious JS
-The slides are here:
-http://www.slideshare.net/kkotowicz/malicious-javascript/
 
-The files present attacks on jsunpack (http://jsunpack.jeek.org/) and Dean Edwards Unpacker 
-(http://dean.edwards.name/unpacker)
+The slides are here:
+<http://www.slideshare.net/kkotowicz/malicious-javascript/>
+
+The files present attacks on [jsunpack](http://jsunpack.jeek.org/) and [Dean Edwards Unpacker](http://dean.edwards.name/unpacker)
 
 jsunpack attacks
 ==========
@@ -22,7 +22,7 @@ Sandbox detection
 Dr Jekyll attack
 ---------------
 - check jekyll1.html and jekyll2.html files
-  The trick here is that jsunpack executes all <script> tags instead of only JavaScript
+  The trick here is that jsunpack executes all &lt;script&gt; tags instead of only JavaScript
   and we can avoid detection by running ssome code only in jsunpack
 
 HTML hack
