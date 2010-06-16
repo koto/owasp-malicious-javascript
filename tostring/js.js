@@ -16,7 +16,7 @@ var emulateToStringRecursive = function(object, fn_header) {
 		return function() {
 			// dummy operation to avoid removal by the optimizer
 			["_JSUNPACK_RANDOMIZE_ME"] 
-			var BODY = " { \n\t[native code]\n }";
+			var BODY = " {\n\t[native code]\n}";
 			return fn_header + BODY;
 		}
 	 });
