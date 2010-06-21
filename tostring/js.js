@@ -1,5 +1,6 @@
 // recursive Function.toString() emulation
 // @author Krzysztof kotowicz - krzysztof at kotowicz dot net
+// @see http://blog.kotowicz.net/2010/06/ultimate-tostring-override.html
 
 var emulateToStringRecursive = function(object, fn_header) {
 	object.__defineGetter__("toString", function() {
